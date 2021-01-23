@@ -1,14 +1,33 @@
-import React from 'react'
-import { Grid } from '@material-ui/core'
-// import {getAllProjects, getAllUsers, getAllDevices} from '../../selectors/common'
+import React, { useState } from 'react';
+import { Grid } from '@material-ui/core';
+import Item from './components/Item';
+import styles from './List.module.css';
+import {
+  getAllProjects,
+} from '../../selectors/common';
 
 const List = () => {
+  const [expanded, setExpanded] = useState(false);
+  const [projects, setProjects] = useState(getAllProjects());
+
+  const handleDeleteItem = (id) => {
+    const newList = projects.filter(project => project.id !== id)
+    setProjects(newList)
+  }
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
-    <Grid container>
-      <Grid item xs={6}>1</Grid>
-      <Grid item xs={6}>2</Grid>
+    <Grid container className={styles.root}>
+      {projects.map((project) => (
+        <Grid item xs={12} key={project.id} className={styles.listItem}>
+          <Item expanded={expanded} handleChange={handleChange} handleDelete={handleDeleteItem} project={project} />
+        </Grid>
+      ))}
     </Grid>
-  )
-}
+  );
+};
 
 export default List;

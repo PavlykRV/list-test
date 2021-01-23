@@ -7,7 +7,7 @@ import {
 } from '../../selectors/common';
 
 const List = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [expandedPanel, setExpanded] = useState(false);
   const [projects, setProjects] = useState(getAllProjects());
 
   const handleDeleteItem = (id) => {
@@ -15,15 +15,15 @@ const List = () => {
     setProjects(newList)
   }
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+  const handleCollapse = (panel) =>  {
+    setExpanded(panel);
   };
 
   return (
     <Grid container className={styles.root}>
       {projects.map((project) => (
         <Grid item xs={12} key={project.id} className={styles.listItem}>
-          <Item expanded={expanded} handleChange={handleChange} handleDelete={handleDeleteItem} project={project} />
+          <Item expanded={expandedPanel} handleCollapse={handleCollapse} handleDelete={handleDeleteItem} project={project} />
         </Grid>
       ))}
     </Grid>

@@ -14,6 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import useStyles from './styles';
 import Menu from './components/Menu';
 import ProjectsList from './components/ProjectsList';
+import ProjectDetails from './components/ProjectDetails';
 import UsersList from './components/UsersList';
 import DevicesList from './components/DevicesList';
 
@@ -80,10 +81,10 @@ const App = () => {
         <div className={classes.toolbar} />
         <Switch>
           <Route exact path='/' />
-          <Route path='/projects' component={ProjectsList} />
+          <Route exact path='/projects' component={ProjectsList} />
+          <Route path='/projects/:id' component={ProjectDetails} />
           <Route path='/users' component={UsersList} />
           <Route path='/devices' component={DevicesList} />
-          {/* <Route path='/:id' component={List} /> */}
         </Switch>
       </main>
     </div>

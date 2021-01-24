@@ -72,6 +72,9 @@ const ProjectDetails = () => {
           onChange={handleChange}
           value={title}
           name='title'
+          InputLabelProps={{
+            shrink: true,
+          }}
         />
       </Grid>
       <Grid item xs={12} sm={6}>
@@ -84,6 +87,9 @@ const ProjectDetails = () => {
           name='beginDate'
           size='small'
           label="Initiate date"
+          InputLabelProps={{
+            shrink: true,
+          }}
         />
       </Grid>
       <Grid item xs={12} sm={6}>
@@ -96,6 +102,9 @@ const ProjectDetails = () => {
           name='expirationDate'
           size='small'
           label="Completed date"
+          InputLabelProps={{
+            shrink: true,
+          }}
         />
       </Grid>
       <Grid item xs={12} className={styles.actions}>

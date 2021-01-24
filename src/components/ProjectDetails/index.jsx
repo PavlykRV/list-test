@@ -68,6 +68,7 @@ const ProjectDetails = () => {
           id='outlined-basic'
           variant='outlined'
           size='small'
+          label="Project Name"
           onChange={handleChange}
           value={title}
           name='title'
@@ -82,6 +83,7 @@ const ProjectDetails = () => {
           defaultValue={getPickerDate(beginDate)}
           name='beginDate'
           size='small'
+          label="Initiate date"
         />
       </Grid>
       <Grid item xs={12} sm={6}>
@@ -93,6 +95,7 @@ const ProjectDetails = () => {
           defaultValue={getPickerDate(expirationDate)}
           name='expirationDate'
           size='small'
+          label="Completed date"
         />
       </Grid>
       <Grid item xs={12} className={styles.actions}>

@@ -3,7 +3,9 @@ const actionTypes = {
     DELETE: 'DELETE',
     UPDATE: 'UPDATE',
   },
-  USER: {},
+  USER: {
+    DELETE: 'DELETE',
+  },
   DEVICE: {},
 };
 

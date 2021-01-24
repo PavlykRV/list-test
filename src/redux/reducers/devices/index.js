@@ -1,8 +1,8 @@
 // import actionTypes from '../../actions/actionTypes';
 // import get from 'lodash/get';
-import { getAllDevices } from '../../../selectors/common'
+import { getUniqueDevices } from '../../../selectors/common'
 
-const initialState = [...getAllDevices()];
+const initialState = [...getUniqueDevices()];
 
 const devicesReducer = (state = initialState, action) => {
   switch (action.type) {

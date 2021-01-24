@@ -8,6 +8,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import PeopleIcon from '@material-ui/icons/People';
 import DevicesIcon from '@material-ui/icons/Devices';
 import { Link } from 'react-router-dom';
+import styles from './Menu.module.scss'
 
 const NAV_CONFIG = [
   {
@@ -34,9 +35,9 @@ const NAV_CONFIG = [
 
 const Menu = () => {
   return (
-    <List>
+    <List className={styles.root}>
       {NAV_CONFIG.map(({ title, path, icon }) => (
-        <Link key={title} to={path}>
+        <Link key={title} to={path} className={styles.menuItem}>
           <ListItem button>
             <ListItemIcon>{icon}</ListItemIcon>
             <ListItemText primary={title} />

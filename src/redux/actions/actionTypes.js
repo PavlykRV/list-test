@@ -1,5 +1,7 @@
 const actionTypes = {
-  PROJECT: {},
+  PROJECT: {
+    DELETE: 'DELETE'
+  },
   USER: {},
   DEVICE: {},
 };

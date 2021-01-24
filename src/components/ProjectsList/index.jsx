@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -9,6 +10,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TablePagination from '@material-ui/core/TablePagination';
 
+import DeleteButton from '../DeleteButton'
+import { projectDelete } from '../../redux/actions/projects'
 import { useProjectsSelect } from '../../selectors/projects';
 import { getFormattedDate } from '../../utils/formatters';
 import useStyles from './styles';
@@ -19,7 +22,7 @@ const columns = [
     id: 'title',
     label: 'Title',
     minWidth: 170,
-    format: (value, item) => <Link to={`/projects/${item.id}`}>{value}</Link>,
+    format: (value, {item}) => <Link to={`/projects/${item.id}`}>{value}</Link>,
   },
   {
     id: 'beginDate',
@@ -40,12 +43,13 @@ const columns = [
     label: 'Deleted',
     minWidth: 170,
     align: 'right',
-    format: (value) => String(!!value),
+    format: (value, {item, dispatch}) => (<DeleteButton onClick={() => dispatch(projectDelete(item.id))} />),
   },
 ];
 
 const ProjectsList = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(25);
 
@@ -87,7 +91,7 @@ const ProjectsList = () => {
                       const value = row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format ? column.format(value, row) : value}
+                          {column.format ? column.format(value, {item: row, dispatch}) : value}
                         </TableCell>
                       );
                     })}

@@ -5,6 +5,7 @@ const actionTypes = {
   },
   USER: {
     DELETE: 'DELETE',
+    ADD: 'ADD',
   },
   DEVICE: {},
 };

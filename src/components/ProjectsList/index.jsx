@@ -11,6 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TablePagination from '@material-ui/core/TablePagination';
 
 import DeleteButton from '../DeleteButton'
+import UsersCounter from '../UsersCounter'
 import { projectDelete } from '../../redux/actions/projects'
 import { useProjectsSelect } from '../../selectors/projects';
 import { getFormattedDate } from '../../utils/formatters';
@@ -37,6 +38,13 @@ const columns = [
     minWidth: 170,
     align: 'right',
     format: (value) => getFormattedDate(value),
+  },
+  {
+    id: 'participant',
+    label: 'Participant',
+    minWidth: 170,
+    align: 'right',
+    format: (value, {item, dispatch}) => (<UsersCounter id={item.id} />),
   },
   {
     id: 'deleted',

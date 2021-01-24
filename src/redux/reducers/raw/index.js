@@ -28,6 +28,15 @@ const rawReducer = (state = initialState, action) => {
       };
     }
 
+    case actionTypes.USER.ADD: {
+      const newUser = get(action, ['payload'], {});
+
+      return {
+        ...state,
+        users: [...state.users, newUser]
+      };
+    }
+
     default:
       return state;
   }

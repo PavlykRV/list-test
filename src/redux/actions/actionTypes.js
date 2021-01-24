@@ -1,6 +1,7 @@
 const actionTypes = {
   PROJECT: {
-    DELETE: 'DELETE'
+    DELETE: 'DELETE',
+    UPDATE: 'UPDATE',
   },
   USER: {},
   DEVICE: {},

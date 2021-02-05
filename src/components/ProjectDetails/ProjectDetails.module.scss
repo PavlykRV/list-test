@@ -1,0 +1,18 @@
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  .actionBtn {
+    margin: 0 6px;
+  }
+  
+  .saveBtn {
+    background-color: #4caf50;
+
+    &:hover,
+    &:active {
+      background-color: #388e3c;
+    }
+  }
+}
+

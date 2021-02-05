@@ -1,0 +1,18 @@
+.userItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 200px;
+  height: 32px;
+
+  .deleteBtn {
+    display: none;
+  }
+
+  &:hover {
+    .deleteBtn {
+      display: block;
+    }
+  }
+}
+

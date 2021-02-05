@@ -14,7 +14,7 @@ export const getAllProjects = () => {
   }, []);
 };
 
-export const getAllUsers = () => {
+export const getUniqueUsers = () => {
   return users.reduce((acc, user) => {
     const isExist = acc.find((item) => item.appuserId === user.appuserId);
 
@@ -26,7 +26,7 @@ export const getAllUsers = () => {
   }, []);
 };
 
-export const getAllDevices = () => {
+export const getUniqueDevices = () => {
   return devices.reduce((acc, device) => {
     const isExist = acc.find((item) => item.deviceId === device.deviceId);
 
@@ -37,6 +37,10 @@ export const getAllDevices = () => {
     return [...acc, device];
   }, []);
 };
+
+export const getUsers = () => users;
+export const getDevices = () => devices;
+export const getProjects = () => projects;
 
 export const getUsersByProject = (id) => {
   return users.filter(user => user.projectId === id)
